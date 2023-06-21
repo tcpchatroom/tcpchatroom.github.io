@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignUp Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="static/style2.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+    
+    <!-- CSS Styles for Pop-up -->
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .popup-message {
+            margin: 0;
+            font-size: 16px;
+        }
+        .popup-show {
+            display: block !important;
+        }
+    </style>
+    <!-- //CSS Styles for Pop-up -->
+    
+    <!-- JavaScript to Show/Hide Pop-up -->
+    <script>
+        // Function to show the pop-up
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.classList.add("popup-show");
+        }
+
+        // Function to hide the pop-up
+        function hidePopup() {
+            var popup = document.getElementById("popup");
+            popup.classList.remove("popup-show");
+        }
+    </script>
+    <!-- //JavaScript to Show/Hide Pop-up -->
+    
+</head>
+<body>
+<!-- main -->
+<div class="main-w3layouts wrapper">
+    <h1>SignUp Form</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form action="/Register" method="POST">
+                <input class="text" type="text" name="Username" placeholder="Username" required="">
+                <input class="text email" type="email" name="email" placeholder="Email" required="">
+                <input class="text" type="password" name="password" placeholder="Password" required="">
+                <div class="wthree-text">
+                    <label class="anim">
+                        <input type="checkbox" class="checkbox" required="">
+                        <span>I Agree To The Terms & Conditions</span>
+                    </label>
+                    <div class="clear"> </div>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Have an Account? <a href="/">Login!</a></p>
+            
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div id="popup" class="popup">
+                    <p class="popup-message">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </p>
+                    <button onclick="hidePopup()">Close</button>
+                </div>
+              {% endif %}
+            {% endwith %}
+            
+        </div>
+    </div>
+    <!-- //main -->
+</div>
+<!-- footer -->
+<div class="footer">
+    <p>&copy; 2023 SignUp Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+</div>
+<!-- //footer -->
+</body>
+</html>
