@@ -27,7 +27,7 @@ def generate_unique_code(length):
     return code
 
 @app.route("/", methods=['POST','GET'])
-def Login():
+def index():
     if request.method == "POST":
         name = request.form.get('username')
         passwo = request.form.get('password')
@@ -44,10 +44,10 @@ def Login():
           return redirect('/Home')
         else:
           print("Password Incorrect")
-          return render_template('Login.html')
+          return render_template('index.html')
       
     else:
-        return render_template("login.html")
+        return render_template("index.html")
     
 @app.route("/Register", methods=['POST', 'GET'])
 def register():
